@@ -3,7 +3,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 
-SPREADSHEET_ID = "ВСТАВЬ_СЮДА_ID_ТАБЛИЦЫ"
+SPREADSHEET_ID = "10ffqEkVaBHjtiROjlullxrGKu5yM8S_CUUcK_U_lXbc"
 
 scope = [
     "https://spreadsheets.google.com/feeds",
@@ -27,7 +27,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Ссылка сохранена ✅")
 
 
-app = ApplicationBuilder().token("ВСТАВЬ_СЮДА_BOT_TOKEN").build()
+app = ApplicationBuilder().token("8433445267:AAEsQ83xH64-78KD8CjlLZ-ln6-ElaD8tG8").build()
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
