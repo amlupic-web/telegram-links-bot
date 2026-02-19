@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -24,9 +23,9 @@ jobs:
 
       - name: Create credentials.json
         run: |
-          echo "${GOOGLE_CREDENTIALS}" > credentials.json
-        env:
-          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+          cat << 'EOF' > credentials.json
+          ${{ secrets.GOOGLE_CREDENTIALS }}
+          EOF
 
       - name: Run bot
         env:
